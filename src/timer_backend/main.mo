@@ -32,5 +32,19 @@ actor SimpleTimer {
       Debug.print("Timer is not running.");
     }
   };
+
+
+  public func resume() {
+    Debug.print("Resuming the timer");
+    if (not isRunning) {
+      startTime := Time.now() / 1_000_000_000;
+      isRunning := true;
+      Debug.print("Timer resumed at: " # Int.toText(startTime) # " seconds");
+    } else {
+      Debug.print("Timer is already running.");
+    }
+  };
+
+
 };
 
