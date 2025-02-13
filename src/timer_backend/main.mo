@@ -46,5 +46,20 @@ actor SimpleTimer {
   };
 
 
+  public func stop() : async Int {
+    Debug.print("Stopping the timer");
+    if (isRunning) {
+      let elapsedTime = (Time.now() / 1_000_000_000) - startTime;
+      totalTime += elapsedTime;
+      isRunning := false;
+    };
+    let finalTime = totalTime;
+    totalTime := 0;
+    Debug.print("Timer stopped. Total time: " # Int.toText(finalTime) # " seconds");
+    return finalTime;
+  };
+
+
+
 };
 
