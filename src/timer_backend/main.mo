@@ -60,6 +60,17 @@ actor SimpleTimer {
   };
 
 
+  public query func check() : async Int {
+    Debug.print("Checking the timer");
+    if (isRunning) {
+      let currentTime = ((Time.now() / 1_000_000_000) - startTime) + totalTime;
+      Debug.print("⏱️ Current time: " # Int.toText(currentTime) # " seconds");
+      return currentTime;
+    } else {
+      Debug.print("⏱️ Timer stopped. Total time: " # Int.toText(totalTime) # " seconds");
+      return totalTime;
+    }
+  };
 
 };
 
