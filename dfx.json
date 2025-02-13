@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "timer_backend": {
+      "main": "src/timer_backend/main.mo",
+      "type": "motoko"
+    },
+    "timer_frontend": {
+      "dependencies": [
+        "timer_backend"
+      ],
+      "source": [
+        "src/timer_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "timer_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
